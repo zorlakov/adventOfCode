@@ -8,9 +8,12 @@ namespace Day5
 {
     class Calculator
     {
+        int maxId = 0;
+       public List<int> idsList = new List<int>();
+
         public int Calculate(string[] seats)
         {
-            int maxId = 0;
+            
 
             for (int i = 0; i < seats.Length; i++)
             {
@@ -40,17 +43,38 @@ namespace Day5
                         default:
                             break;
                     }
-                    currentId = minRowValue * 8 + minColumnValue;
-                    if (currentId > maxId) maxId = currentId;
-
+                    //  currentId = minRowValue * 8 + minColumnValue;
+             //  currentId = maxRowValue * 8 + maxColumnValue;
+                 //   if (currentId > maxId) maxId = currentId;
+                
                 }
+                currentId = maxRowValue * 8 + maxColumnValue;
+
+                // Add each ID to a list of integers (for part two of solution)
+                idsList.Add(currentId);
+                if (currentId > maxId) maxId = currentId;
 
             }
 
-
+      
 
 
             return maxId;
         }
+
+        public int findMySeat(List<int> idsList)
+        {
+            idsList.Sort();
+
+             int mySeatID=0;
+              for(int i=0; i<idsList.Count()-1; i++)
+              {
+                  if (idsList[i + 1] - idsList[i] != 1) { mySeatID = idsList[i+1]-1; break; }
+
+              }
+              return mySeatID;  
+       
+        }
+
     }
 }

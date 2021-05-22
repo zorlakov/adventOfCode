@@ -6,10 +6,14 @@ namespace Day5
     {
         static void Main(string[] args)
         {
-            string[] seats = System.IO.File.ReadAllLines("data.txt");
+            string[] seats = System.IO.File.ReadAllLines("data3.txt");
             Calculator c = new Calculator();
-            int mySeat = c.Calculate(seats);
-            Console.WriteLine(mySeat);
+            int maxSeatID = c.Calculate(seats);
+            Console.WriteLine(maxSeatID);
+
+            
+        int mySeatID = c.findMySeat(c.idsList);
+           Console.WriteLine(mySeatID);
         }
     }
 }
