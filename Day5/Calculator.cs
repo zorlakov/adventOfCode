@@ -14,10 +14,8 @@ namespace Day5
         public int Calculate(string[] seats)
         {
 
-
             for (int i = 0; i < seats.Length; i++)
             {
-
                 int maxRowValue = 127;
                 int minRowValue = 0;
                 int maxColumnValue = 7;
@@ -44,8 +42,6 @@ namespace Day5
                         default:
                             break;
                     }
-
-
                 }
                 // currentId can also be calculated using min values for rows/columns instead of max (they will be equal)
                 currentId = maxRowValue * 8 + maxColumnValue;
@@ -53,12 +49,7 @@ namespace Day5
 
                 // Add each ID to a list of integers (for part two of solution)
                 idsList.Add(currentId);
-
-
             }
-
-
-
 
             return maxId;
         }
@@ -73,11 +64,9 @@ namespace Day5
             {
                 // If the result of subtracting the next from the current ID is not exactly one, we found our ID!
                 if (idsList[i + 1] - idsList[i] != 1) { mySeatID = idsList[i + 1] - 1; break; }
-
             }
             return mySeatID;
 
         }
-
     }
 }

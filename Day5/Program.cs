@@ -8,12 +8,12 @@ namespace Day5
         {
             string[] seats = System.IO.File.ReadAllLines("data.txt");
             Calculator c = new Calculator();
+
             int maxSeatID = c.Calculate(seats);
             Console.WriteLine(maxSeatID);
 
-            
-        int mySeatID = c.findMySeat(c.idsList);
-           Console.WriteLine(mySeatID);
+            int mySeatID = c.findMySeat(c.idsList);
+            Console.WriteLine(mySeatID);
         }
     }
 }
