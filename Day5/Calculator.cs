@@ -9,11 +9,11 @@ namespace Day5
     class Calculator
     {
         int maxId = 0;
-       public List<int> idsList = new List<int>();
+        public List<int> idsList = new List<int>();
 
         public int Calculate(string[] seats)
         {
-            
+
 
             for (int i = 0; i < seats.Length; i++)
             {
@@ -28,6 +28,7 @@ namespace Day5
                 {
                     switch (c)
                     {
+
                         case 'F':
                             maxRowValue -= ((maxRowValue - minRowValue) / 2) + 1;
                             break;
@@ -43,20 +44,20 @@ namespace Day5
                         default:
                             break;
                     }
-                    //  currentId = minRowValue * 8 + minColumnValue;
-             //  currentId = maxRowValue * 8 + maxColumnValue;
-                 //   if (currentId > maxId) maxId = currentId;
-                
+
+
                 }
+                // currentId can also be calculated using min values for rows/columns instead of max (they will be equal)
                 currentId = maxRowValue * 8 + maxColumnValue;
+                if (currentId > maxId) maxId = currentId;
 
                 // Add each ID to a list of integers (for part two of solution)
                 idsList.Add(currentId);
-                if (currentId > maxId) maxId = currentId;
+
 
             }
 
-      
+
 
 
             return maxId;
@@ -64,16 +65,18 @@ namespace Day5
 
         public int findMySeat(List<int> idsList)
         {
+            // First sort the array so we can find the missing ID (our ID)
             idsList.Sort();
 
-             int mySeatID=0;
-              for(int i=0; i<idsList.Count()-1; i++)
-              {
-                  if (idsList[i + 1] - idsList[i] != 1) { mySeatID = idsList[i+1]-1; break; }
+            int mySeatID = 0;
+            for (int i = 0; i < idsList.Count() - 1; i++)
+            {
+                // If the result of subtracting the next from the current ID is not exactly one, we found our ID!
+                if (idsList[i + 1] - idsList[i] != 1) { mySeatID = idsList[i + 1] - 1; break; }
 
-              }
-              return mySeatID;  
-       
+            }
+            return mySeatID;
+
         }
 
     }
