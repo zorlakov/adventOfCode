@@ -1,19 +1,22 @@
-const countOccupiedSeats = (i, j, rows, columns, currentSeating) => {
-  var counter = 0;
-  // if statements to check for all 8 adjacent seats (or less if they are out of bounds)
-  if (i - 1 >= 0 && j - 1 >= 0)
-    if (currentSeating[i - 1][j - 1] == '#') counter++;
-  if (i - 1 >= 0) if (currentSeating[i - 1][j] == '#') counter++;
-  if (j - 1 >= 0) if (currentSeating[i][j - 1] == '#') counter++;
-  if (i + 1 < rows && j - 1 >= 0)
-    if (currentSeating[i + 1][j - 1] == '#') counter++;
-  if (i - 1 >= 0 && j + 1 < columns - 1)
-    if (currentSeating[i - 1][j + 1] == '#') counter++;
-  if (i + 1 < rows) if (currentSeating[i + 1][j] == '#') counter++;
-  if (j + 1 < columns - 1) if (currentSeating[i][j + 1] == '#') counter++;
-  if (i + 1 < rows && j + 1 < columns - 1)
-    if (currentSeating[i + 1][j + 1] == '#') counter++;
-
+const countOccupiedSeats = (
+  positionX,
+  positionY,
+  rows,
+  columns,
+  currentSeating
+) => {
+  let counter = 0;
+  // Check the 8 adjacent seats
+  for (let i = positionX - 1; i <= positionX + 1; i++) {
+    // If i or j go below 0 or above the number of rows/columns skip - out of bounds
+    if (i < 0 || i >= rows) continue;
+    for (let j = positionY - 1; j <= positionY + 1; j++) {
+      // Ignore current seat (when i and j are equal to position X and Y)
+      if (j < 0 || j >= columns - 1 || (i == positionX && j == positionY))
+        continue;
+      else if (currentSeating[i][j] == '#') counter++;
+    }
+  }
   return counter;
 };
 
