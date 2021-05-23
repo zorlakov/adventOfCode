@@ -1,6 +1,7 @@
+// Navigate to "Day11JS folder" and run "node index" in terminal.
 // Import modules
-const solution = require('./solution');
-const solution1 = require('./solution1');
+const solution = require('./partOne');
+const solution1 = require('./partTwo');
 
 const fs = require('fs');
 

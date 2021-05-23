@@ -67,9 +67,7 @@ function solveFirst(seats) {
     }
 
     if (areTheSame) {
-      //  console.log(finalNumber);
       return finalNumber;
-      break;
     } else {
       for (let i = 0; i < rows; i++) {
         for (let j = 0; j < columns - 1; j++) {
