@@ -12,8 +12,9 @@ const countOccupiedSeats = (
     if (i < 0 || i >= rows) continue;
     for (let j = positionY - 1; j <= positionY + 1; j++) {
       // Ignore current seat (when i and j are equal to position X and Y)
-      if (j < 0 || j >= columns - 1 || (i == positionX && j == positionY))
-        continue;
+      //  if (j < 0 || j >= columns - 1 || (i == positionX && j == positionY))
+
+      if (j < 0 || j >= columns || (i == positionX && j == positionY)) continue;
       else if (currentSeating[i][j] == '#') counter++;
     }
   }
@@ -55,7 +56,8 @@ const countOccupiedSeatsAll = (
 
       // Check if out of bounds
       if (nextRow < 0 || nextRow >= rows) temp = 0;
-      else if (nextColumn < 0 || nextColumn >= columns - 1) {
+      //   else if (nextColumn < 0 || nextColumn >= columns - 1) {
+      else if (nextColumn < 0 || nextColumn >= columns) {
         temp = 0;
       }
 
@@ -78,8 +80,10 @@ function solve(seats, limit) {
   var columns = seats[0].length;
   for (let i = 0; i < rows; i++) {
     // NOTE: columns -1 instead of columns because puzzle data from adventofcode site copies with a " " at the end of all strings adding a new column.
-    var line = new Array(columns - 1);
-    for (let j = 0; j < columns - 1; j++) {
+    // var line = new Array(columns - 1);
+    // for (let j = 0; j < columns - 1; j++) {
+    var line = new Array(columns);
+    for (let j = 0; j < columns; j++) {
       line[j] = seats[i][j];
     }
     previousSeating[i] = line;
@@ -89,15 +93,18 @@ function solve(seats, limit) {
     // Infinite loop which ends once the seating doesn't change after going through the loop
     let newSeating = [[]];
     for (let i = 0; i < rows; i++) {
-      var line = new Array(columns - 1);
-      for (let j = 0; j < columns - 1; j++) {
+      // var line = new Array(columns - 1);
+      //  for (let j = 0; j < columns - 1; j++) {
+      var line = new Array(columns);
+      for (let j = 0; j < columns; j++) {
         line[j] = previousSeating[i][j];
       }
       newSeating[i] = line;
     }
 
     for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < columns - 1; j++) {
+      // for (let j = 0; j < columns - 1; j++) {
+      for (let j = 0; j < columns; j++) {
         if (previousSeating[i][j] == '.') continue;
         let counter;
         if (limit == 4)
@@ -115,7 +122,8 @@ function solve(seats, limit) {
     var areTheSame = true;
     var finalNumber = 0;
     for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < columns - 1; j++) {
+      // for (let j = 0; j < columns - 1; j++) {
+      for (let j = 0; j < columns; j++) {
         if (previousSeating[i][j] != newSeating[i][j]) {
           areTheSame = false;
         }
@@ -127,7 +135,8 @@ function solve(seats, limit) {
       return finalNumber;
     } else {
       for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < columns - 1; j++) {
+        // for (let j = 0; j < columns - 1; j++) {
+        for (let j = 0; j < columns; j++) {
           previousSeating[i][j] = newSeating[i][j];
         }
       }

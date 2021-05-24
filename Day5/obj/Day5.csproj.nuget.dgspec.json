@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mithrandir\\Desktop\\kopijaBitna\\adventOfCode\\Day5\\Day5.csproj": {}
+    "C:\\Users\\Mithrandir\\Desktop\\ksakas\\adventOfCode\\Day5\\Day5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mithrandir\\Desktop\\kopijaBitna\\adventOfCode\\Day5\\Day5.csproj": {
+    "C:\\Users\\Mithrandir\\Desktop\\ksakas\\adventOfCode\\Day5\\Day5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mithrandir\\Desktop\\kopijaBitna\\adventOfCode\\Day5\\Day5.csproj",
+        "projectUniqueName": "C:\\Users\\Mithrandir\\Desktop\\ksakas\\adventOfCode\\Day5\\Day5.csproj",
         "projectName": "Day5",
-        "projectPath": "C:\\Users\\Mithrandir\\Desktop\\kopijaBitna\\adventOfCode\\Day5\\Day5.csproj",
+        "projectPath": "C:\\Users\\Mithrandir\\Desktop\\ksakas\\adventOfCode\\Day5\\Day5.csproj",
         "packagesPath": "C:\\Users\\Mithrandir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mithrandir\\Desktop\\kopijaBitna\\adventOfCode\\Day5\\obj\\",
+        "outputPath": "C:\\Users\\Mithrandir\\Desktop\\ksakas\\adventOfCode\\Day5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
